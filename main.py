@@ -49,13 +49,13 @@ if __name__ == '__main__':
     amplitude_data = [[None for _ in range(len(data))] for _ in range(len(data[0]))]
     for time_index in range(len(amplitude_data[0])):
         for amplitude_index in range(len(amplitude_data)):
-            amplitude_data[amplitude_index][time_index] = data[time_index][amplitude_index] * 1000.0
+            amplitude_data[amplitude_index][time_index] = data[time_index][amplitude_index] * 0.001
 
     while True:
         data = device.get_scan_range(start, stop, step)
         for index in range(0, len(amplitude_data)):
             amplitude_data[index].pop(0)
-            amplitude_data[index].append(data[0][index])
+            amplitude_data[index].append(data[0][index] * 0.001)
 
         cv2.imshow('kek', get_image_from_ampl(amplitude_data))
         if cv2.waitKey(10) & 0xFF == ord('q'):
