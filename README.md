@@ -14,5 +14,5 @@ pip install -r requirements.txt
 
 ## Запуск приложения
 ```
-python main.py
+python main.py --start [начальная частота сканирвоания] --stop [конечная частота сканирования] --step [шаг сканирования]
 ```
