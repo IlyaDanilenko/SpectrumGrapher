@@ -55,9 +55,9 @@ if __name__ == '__main__':
         data = device.get_scan_range(start, stop, step)
         for index in range(0, len(amplitude_data)):
             amplitude_data[index].pop(0)
-            amplitude_data[index].append(data[0][index] * 0.001)
+            amplitude_data[index].append(data[index] * 0.001)
 
-        cv2.imshow('kek', get_image_from_ampl(amplitude_data))
+        cv2.imshow('SpectrumGrapher', get_image_from_ampl(amplitude_data))
         if cv2.waitKey(10) & 0xFF == ord('q'):
             break
 
